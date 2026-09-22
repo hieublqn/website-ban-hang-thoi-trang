@@ -2,16 +2,21 @@ const router = require('express').Router();
 const db = require('../db');
 const { requireAdmin } = require('../auth');
 
-// GET /api/products?category=1&q=áo
+// Danh sách sắp xếp cho phép - dùng whitelist, không nối trực tiếp query của client vào SQL
+const SORTS = { gia_tang: 'sp.Gia ASC', gia_giam: 'sp.Gia DESC', moi_nhat: 'sp.MaSP DESC' };
+
+// GET /api/products?category=1&q=áo&sort=gia_tang&minPrice=100000&maxPrice=300000
 router.get('/', async (req, res) => {
-  const { category, q } = req.query;
+  const { category, q, sort, minPrice, maxPrice } = req.query;
   const where = [];
   const params = [];
   if (category) { where.push('sp.MaDM = ?'); params.push(category); }
   if (q) { where.push('sp.TenSP LIKE ?'); params.push(`%${q}%`); }
+  if (minPrice) { where.push('sp.Gia >= ?'); params.push(minPrice); }
+  if (maxPrice) { where.push('sp.Gia <= ?'); params.push(maxPrice); }
   const [rows] = await db.query(
     `SELECT sp.*, dm.TenDM FROM SanPham sp JOIN DanhMuc dm ON dm.MaDM = sp.MaDM
-     ${where.length ? 'WHERE ' + where.join(' AND ') : ''} ORDER BY sp.MaSP DESC`, params);
+     ${where.length ? 'WHERE ' + where.join(' AND ') : ''} ORDER BY ${SORTS[sort] || SORTS.moi_nhat}`, params);
   res.json(rows);
 });
 

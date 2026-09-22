@@ -6,6 +6,7 @@ import ProductDetail from './pages/ProductDetail.jsx'
 import Cart from './pages/Cart.jsx'
 import Checkout from './pages/Checkout.jsx'
 import OrderDone from './pages/OrderDone.jsx'
+import OrderLookup from './pages/OrderLookup.jsx'
 import Contact from './pages/Contact.jsx'
 import Login from './pages/admin/Login.jsx'
 import AdminLayout from './pages/admin/AdminLayout.jsx'
@@ -24,7 +25,8 @@ export default function App() {
         <Route path="/san-pham/:id" element={<ProductDetail />} />
         <Route path="/gio-hang" element={<Cart />} />
         <Route path="/thanh-toan" element={<Checkout />} />
-        <Route path="/don-hang" element={<OrderDone />} />
+        <Route path="/don-hang/:id" element={<OrderDone />} />
+        <Route path="/tra-cuu-don-hang" element={<OrderLookup />} />
         <Route path="/lien-he" element={<Contact />} />
       </Route>
       <Route path="/admin/login" element={<Login />} />

@@ -7,7 +7,7 @@ export default function ProductCard({ p }) {
   return (
     <div className="card">
       <Link to={`/san-pham/${p.MaSP}`}>
-        <img src={p.HinhAnh} alt={p.TenSP} loading="lazy" />
+        <div className="thumb-wrap"><img src={p.HinhAnh} alt={p.TenSP} loading="lazy" /></div>
         <h3>{p.TenSP}</h3>
       </Link>
       <div className="price">{money(p.Gia)}</div>

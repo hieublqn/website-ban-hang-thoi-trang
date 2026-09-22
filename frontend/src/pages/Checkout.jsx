@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import api, { errMsg, money } from '../api.js'
 import { useCart } from '../cart.jsx'
+import { saveRecentOrder } from '../orderStore.js'
 
 export default function Checkout() {
   const { items, total, clear } = useCart()
@@ -27,7 +28,9 @@ export default function Checkout() {
         items: items.map((i) => ({ MaSP: i.MaSP, SoLuong: i.SoLuong })),
       })
       clear()
-      nav('/don-hang', { state: data })
+      // Lưu tạm trên máy để nếu khách thoát trang QR giữa lúc thanh toán, mở lại link vẫn xem được
+      saveRecentOrder({ MaHD: data.MaHD, SoDienThoai: f.SoDienThoai })
+      nav(`/don-hang/${data.MaHD}`, { state: data })
     } catch (err) {
       setError(errMsg(err))
     } finally {

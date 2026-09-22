@@ -65,6 +65,19 @@ router.get('/:id/status', async (req, res) => {
   res.json(rows[0]);
 });
 
+// Khách xem lại đơn (vd đã thoát trang QR, hoặc vào trang "Tra cứu đơn hàng").
+// Chưa có tài khoản khách hàng nên xác thực bằng SĐT lúc đặt hàng, để người khác không dò được mã đơn xem thông tin.
+router.post('/lookup', async (req, res) => {
+  const { MaHD, SoDienThoai } = req.body;
+  if (!MaHD || !SoDienThoai) return res.status(400).json({ error: 'Thiếu mã đơn hoặc số điện thoại' });
+  const [[hd]] = await db.query(
+    `SELECT hd.MaHD, hd.TongTien, hd.PhuongThucThanhToan, hd.MaThanhToan, hd.TrangThaiThanhToan, hd.TrangThaiDon
+     FROM HoaDon hd JOIN KhachHang kh ON kh.MaKH = hd.MaKH
+     WHERE hd.MaHD = ? AND kh.SoDienThoai = ?`, [MaHD, SoDienThoai]);
+  if (!hd) return res.status(404).json({ error: 'Không tìm thấy đơn khớp với số điện thoại này' });
+  res.json({ ...hd, qrUrl: hd.PhuongThucThanhToan === 'QR' ? qrUrl(hd.TongTien, hd.MaThanhToan) : null });
+});
+
 // ===== Admin =====
 router.get('/', requireAdmin, async (req, res) => {
   const [rows] = await db.query(
