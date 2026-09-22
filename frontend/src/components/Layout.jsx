@@ -7,7 +7,7 @@ export default function Layout() {
     <>
       <header className="header">
         <div className="container header-in">
-          <Link to="/" className="logo">WebShop</Link>
+          <Link to="/" className="logo">StyleNest</Link>
           <nav>
             <NavLink to="/" end>Trang chủ</NavLink>
             <NavLink to="/san-pham">Sản phẩm</NavLink>
@@ -19,7 +19,7 @@ export default function Layout() {
       <main className="container"><Outlet /></main>
       <footer className="footer">
         <div className="container">
-          © 2026 WebShop — Đồ án phần mềm Web · <Link to="/admin">Quản trị</Link>
+          © 2026 StyleNest — Đồ án phần mềm Web · <Link to="/admin">Quản trị</Link>
         </div>
       </footer>
     </>

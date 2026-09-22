@@ -32,8 +32,14 @@ Trang quản trị: http://localhost:5173/admin — tài khoản `admin` / `admi
 - `frontend/` — giao diện React
 - `docs/phan-tich-thiet-ke.md` — Use Case, ERD, luồng QR, danh sách API
 - `docs/bao-cao-dan-bai.md` — dàn ý báo cáo 3 chương
+- `docs/deploy.md` — triển khai online miễn phí (Vercel + Render + TiDB Cloud), tùy chọn
 
 ## Thanh toán QR mức 2 (tự xác nhận)
 
 Đăng ký SePay (có sandbox), khai báo webhook `https://<domain>/api/payment/sepay-webhook`
 (chạy local thì dùng ngrok/cloudflared), đặt cùng một chuỗi vào `WEBHOOK_API_KEY` và trong SePay.
+
+## Triển khai online (xem từ mọi thiết bị, mọi nơi)
+
+Không bắt buộc theo đề bài. Xem hướng dẫn đầy đủ ở [docs/deploy.md](docs/deploy.md)
+(Vercel cho frontend + Render cho backend + TiDB Cloud cho MySQL, tất cả đều free).
