@@ -81,16 +81,16 @@ INSERT INTO DanhMuc (TenDM, MoTa) VALUES
 ('Phụ kiện', 'Mũ, túi, thắt lưng');
 
 INSERT INTO SanPham (MaDM, TenSP, MoTa, Gia, SoLuongTon, HinhAnh) VALUES
-(1, 'Áo thun basic trắng', 'Áo thun cotton 100%, form regular, thoáng mát.', 149000, 50, 'https://picsum.photos/seed/aothun/400/500'),
-(1, 'Áo sơ mi oxford xanh', 'Sơ mi oxford dài tay lịch sự, phù hợp đi làm.', 299000, 30, 'https://picsum.photos/seed/somi/400/500'),
-(1, 'Áo khoác bomber đen', 'Áo khoác bomber chống gió nhẹ.', 459000, 20, 'https://picsum.photos/seed/bomber/400/500'),
-(2, 'Quần jean slim fit', 'Jean co giãn nhẹ, ôm vừa vặn.', 399000, 40, 'https://picsum.photos/seed/jean/400/500'),
-(2, 'Quần kaki be', 'Kaki mềm, dễ phối đồ.', 329000, 35, 'https://picsum.photos/seed/kaki/400/500'),
-(2, 'Quần short thể thao', 'Short thun lạnh, nhanh khô.', 179000, 60, 'https://picsum.photos/seed/short/400/500'),
-(3, 'Đầm suông hoa nhí', 'Đầm suông nhẹ nhàng, chất voan.', 349000, 25, 'https://picsum.photos/seed/dam/400/500'),
-(3, 'Chân váy chữ A', 'Chân váy chữ A lưng cao.', 249000, 30, 'https://picsum.photos/seed/chanvay/400/500'),
-(4, 'Mũ lưỡi trai', 'Mũ cotton thêu logo.', 99000, 80, 'https://picsum.photos/seed/mu/400/500'),
-(4, 'Túi tote canvas', 'Túi vải canvas đựng vừa laptop 14 inch.', 129000, 45, 'https://picsum.photos/seed/tote/400/500');
+(1, 'Áo thun basic trắng', 'Áo thun cotton 100%, form regular, thoáng mát.', 149000, 50, '/images/ao-thun-basic-trang.jpg'),
+(1, 'Áo sơ mi oxford xanh', 'Sơ mi oxford dài tay lịch sự, phù hợp đi làm.', 299000, 30, '/images/ao-so-mi-oxford-xanh.jpg'),
+(1, 'Áo khoác bomber đen', 'Áo khoác bomber chống gió nhẹ.', 459000, 20, '/images/ao-khoac-bomber-den.jpg'),
+(2, 'Quần jean slim fit', 'Jean co giãn nhẹ, ôm vừa vặn.', 399000, 40, '/images/quan-jean-slim-fit.jpg'),
+(2, 'Quần kaki be', 'Kaki mềm, dễ phối đồ.', 329000, 35, '/images/quan-kaki-be.jpg'),
+(2, 'Quần short thể thao', 'Short thun lạnh, nhanh khô.', 179000, 60, '/images/quan-short-the-thao.jpg'),
+(3, 'Đầm suông hoa nhí', 'Đầm suông nhẹ nhàng, chất voan.', 349000, 25, '/images/dam-suong-hoa-nhi.jpg'),
+(3, 'Chân váy chữ A', 'Chân váy chữ A lưng cao.', 249000, 30, '/images/chan-vay-chu-a.jpg'),
+(4, 'Mũ lưỡi trai', 'Mũ cotton thêu logo.', 99000, 80, '/images/mu-luoi-trai.jpg'),
+(4, 'Túi tote canvas', 'Túi vải canvas đựng vừa laptop 14 inch.', 129000, 45, '/images/tui-tote-canvas.jpg');
 
 INSERT INTO KhachHang (HoTen, Email, SoDienThoai, DiaChi) VALUES
 ('Nguyễn Văn An', 'an@example.com', '0900000001', '12 Nguyễn Trãi, Hà Nội'),
