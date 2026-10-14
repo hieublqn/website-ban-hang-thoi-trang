@@ -5,7 +5,9 @@ const db = require('../db');
 // (dùng ngrok/cloudflared khi chạy local). SePay gửi header "Authorization: Apikey <WEBHOOK_API_KEY>".
 router.post('/sepay-webhook', async (req, res) => {
   const key = process.env.WEBHOOK_API_KEY;
-  if (key && req.headers.authorization !== `Apikey ${key}`) return res.status(401).json({ success: false });
+  // Chưa đặt khóa thì tắt hẳn webhook. Nếu để mở, ai cũng gửi được lệnh "đã nhận tiền" giả cho đơn bất kỳ.
+  if (!key) return res.status(503).json({ success: false, error: 'Webhook chưa được bật' });
+  if (req.headers.authorization !== `Apikey ${key}`) return res.status(401).json({ success: false });
 
   const { content = '', transferAmount, transferType } = req.body;
   if (transferType && transferType !== 'in') return res.json({ success: true });

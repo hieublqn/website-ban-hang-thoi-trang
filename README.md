@@ -49,6 +49,7 @@ Lưu ý: nạp lại `database/schema.sql` sẽ đặt lại mật khẩu admin 
 
 Đăng ký SePay (có sandbox), khai báo webhook `https://<domain>/api/payment/sepay-webhook`
 (chạy local thì dùng ngrok/cloudflared), đặt cùng một chuỗi vào `WEBHOOK_API_KEY` và trong SePay.
+`WEBHOOK_API_KEY` là bắt buộc: để trống thì webhook bị tắt (trả 503), tránh bị giả mạo lệnh "đã nhận tiền".
 
 ## Triển khai online (xem từ mọi thiết bị, mọi nơi)
 
