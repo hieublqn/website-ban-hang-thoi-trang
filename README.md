@@ -23,7 +23,18 @@ React (Vite) + Node.js/Express + MySQL. Thanh toán COD hoặc quét mã QR Viet
    ```
    Mở http://localhost:5173
 
-Trang quản trị: http://localhost:5173/admin — tài khoản `admin` / `admin123` (nên đổi khi nộp/deploy).
+Trang quản trị: http://localhost:5173/admin — tài khoản `admin` / `admin123` (mật khẩu mặc định cho máy local).
+Đổi mật khẩu: đăng nhập admin → mục **Đổi mật khẩu**. Web đã deploy online **không** dùng mật khẩu mặc định này.
+
+Quên mật khẩu admin: tạo mã băm mới rồi cập nhật thẳng vào CSDL (phpMyAdmin hoặc SQL Editor của TiDB Cloud):
+```bash
+cd backend
+node -e "console.log(require('bcryptjs').hashSync('MAT_KHAU_MOI', 10))"
+```
+```sql
+UPDATE TaiKhoan SET MatKhau = '<chuỗi băm vừa in ra>' WHERE TenDangNhap = 'admin';
+```
+Lưu ý: nạp lại `database/schema.sql` sẽ đặt lại mật khẩu admin về `admin123` (chỉ nên làm ở máy local).
 
 ## Cấu trúc
 

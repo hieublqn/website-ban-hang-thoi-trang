@@ -15,6 +15,7 @@ import AdminCategories from './pages/admin/AdminCategories.jsx'
 import AdminOrders from './pages/admin/AdminOrders.jsx'
 import AdminCustomers from './pages/admin/AdminCustomers.jsx'
 import AdminContacts from './pages/admin/AdminContacts.jsx'
+import AdminPassword from './pages/admin/AdminPassword.jsx'
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="don-hang" element={<AdminOrders />} />
         <Route path="khach-hang" element={<AdminCustomers />} />
         <Route path="lien-he" element={<AdminContacts />} />
+        <Route path="mat-khau" element={<AdminPassword />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -15,6 +15,7 @@ export default function AdminLayout() {
         <NavLink to="/admin/don-hang">Đơn hàng</NavLink>
         <NavLink to="/admin/khach-hang">Khách hàng</NavLink>
         <NavLink to="/admin/lien-he">Liên hệ</NavLink>
+        <NavLink to="/admin/mat-khau">Đổi mật khẩu</NavLink>
         <Link to="/">← Về cửa hàng</Link>
         <button className="btn danger" onClick={logout}>Đăng xuất</button>
       </aside>
