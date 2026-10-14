@@ -10,6 +10,7 @@ import OrderLookup from './pages/OrderLookup.jsx'
 import Contact from './pages/Contact.jsx'
 import Login from './pages/admin/Login.jsx'
 import AdminLayout from './pages/admin/AdminLayout.jsx'
+import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import AdminProducts from './pages/admin/AdminProducts.jsx'
 import AdminCategories from './pages/admin/AdminCategories.jsx'
 import AdminOrders from './pages/admin/AdminOrders.jsx'
@@ -32,7 +33,8 @@ export default function App() {
       </Route>
       <Route path="/admin/login" element={<Login />} />
       <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<Navigate to="san-pham" replace />} />
+        <Route index element={<Navigate to="thong-ke" replace />} />
+        <Route path="thong-ke" element={<AdminDashboard />} />
         <Route path="san-pham" element={<AdminProducts />} />
         <Route path="danh-muc" element={<AdminCategories />} />
         <Route path="don-hang" element={<AdminOrders />} />

@@ -15,6 +15,7 @@ app.use('/api/customers', require('./src/routes/customers'));
 app.use('/api/orders', require('./src/routes/orders'));
 app.use('/api/contacts', require('./src/routes/contacts'));
 app.use('/api/payment', require('./src/routes/payment'));
+app.use('/api/stats', require('./src/routes/stats'));
 
 app.use((err, req, res, next) => {
   console.error(err);

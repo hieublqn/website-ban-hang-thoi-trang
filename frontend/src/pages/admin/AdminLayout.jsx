@@ -10,6 +10,7 @@ export default function AdminLayout() {
     <div className="admin">
       <aside>
         <h3>Quản trị</h3>
+        <NavLink to="/admin/thong-ke">Thống kê</NavLink>
         <NavLink to="/admin/san-pham">Sản phẩm</NavLink>
         <NavLink to="/admin/danh-muc">Danh mục</NavLink>
         <NavLink to="/admin/don-hang">Đơn hàng</NavLink>
